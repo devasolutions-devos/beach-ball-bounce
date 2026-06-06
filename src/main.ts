@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { MainScene } from './MainScene';
 
 const config: Phaser.Types.Core.GameConfig = {
     type: Phaser.AUTO,
@@ -13,6 +14,7 @@ const config: Phaser.Types.Core.GameConfig = {
         },
       },
     pixelArt: true,
+    scene: [MainScene],
 };
 
 new Phaser.Game(config);
