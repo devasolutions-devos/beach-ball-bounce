@@ -9,4 +9,4 @@ Assets: Beach ball assets by [ph0nsy](https://ph0nsy.itch.io/)
 
 # License
 
-This repository is under the **Apache 2.0 License.** Any use of this code has to follow the guidelines of this license.
+This repository is under the **Apache License. 2.0** Any use of this code has to follow the guidelines of this license.
