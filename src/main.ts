@@ -1,11 +1,16 @@
+//Import necessary dependencies 
 import Phaser from 'phaser';
-import { MainScene } from './MainScene';
 
+//Import scenes the game needs to run
+import { MainScene } from './MainScene';
+import { BootScene } from './BootScene';
+
+//Establish configuration object
 const config: Phaser.Types.Core.GameConfig = {
     type: Phaser.AUTO,
-    width: 800,
-    height: 600,
-    parent: 'main',
+    width: 600,
+    height: 400,
+    parent: 'main', //main div object on index.html
     physics: {
         default: 'arcade',
         arcade: {
@@ -13,8 +18,8 @@ const config: Phaser.Types.Core.GameConfig = {
             debug: false,
         },
       },
-    pixelArt: true,
-    scene: [MainScene],
+    pixelArt: true, //include pixel art graphics for them not to looked blur
+    scene: [BootScene, MainScene], //include scenes
 };
 
-new Phaser.Game(config);
+new Phaser.Game(config); //run game
