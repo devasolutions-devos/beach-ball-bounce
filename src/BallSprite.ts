@@ -28,7 +28,7 @@ export class BallSprite extends Phaser.Physics.Arcade.Sprite {
 
             const length = Math.sqrt(dx*dx + dy*dy);
 
-            this.setVelocity((dx / length) * 500, (dy / length) * 500);
+            this.setVelocity((dx / length) * 300, (dy / length) * 300);
         })
 
         

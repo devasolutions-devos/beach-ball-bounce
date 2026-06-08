@@ -5,7 +5,12 @@ import Phaser from "phaser";
 import beachBallBluePng from "./assets/BeachBallBlue.png";
 import beachBallGreenPng from "./assets/BeachBallGreen.png";
 import beachBallRedPng from "./assets/BeachBallRed.png";
+
+//Import background
 import summerBackgroundPng from "./assets/SummerBackground.png";
+
+//Import background music
+import bouncingBeachBallSongOgg from "./assets/BouncingBeachBallSong.ogg";
 
 export class BootScene extends Phaser.Scene {
     constructor() {
@@ -23,6 +28,9 @@ export class BootScene extends Phaser.Scene {
 
         //load background
         this.load.image("summer-background", summerBackgroundPng);
+
+        //load audio
+        this.load.audio("bouncing-beach-ball-song", bouncingBeachBallSongOgg);
     }
 
     create() {

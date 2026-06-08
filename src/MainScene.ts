@@ -15,6 +15,14 @@ export class MainScene extends Phaser.Scene {
 
     create() {
         //Add background
+        if(!this.sound.get("bouncing-beach-ball-song")) {
+            const music = this.sound.add("bouncing-beach-ball-song", {
+                loop: true,
+                volume: 0.5,
+            });
+
+            music.play();
+        }
         this.backgound = this.add.image(0,0, "summer-background").setOrigin(0,0);
         //Set bounce collisions and create a new BallSprite
         this.physics.world.setBoundsCollision(true, true, true, false); //Only fall offscreen (when the ball goes down)
