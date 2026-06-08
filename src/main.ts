@@ -8,8 +8,8 @@ import { BootScene } from './BootScene';
 //Establish configuration object
 const config: Phaser.Types.Core.GameConfig = {
     type: Phaser.AUTO,
-    width: 600,
-    height: 400,
+    width: 800,
+    height: 600,
     parent: 'main', //main div object on index.html
     physics: {
         default: 'arcade',

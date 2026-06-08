@@ -5,6 +5,7 @@ import Phaser from "phaser";
 import beachBallBluePng from "./assets/BeachBallBlue.png";
 import beachBallGreenPng from "./assets/BeachBallGreen.png";
 import beachBallRedPng from "./assets/BeachBallRed.png";
+import summerBackgroundPng from "./assets/SummerBackground.png";
 
 export class BootScene extends Phaser.Scene {
     constructor() {
@@ -19,6 +20,9 @@ export class BootScene extends Phaser.Scene {
         this.load.spritesheet("beach-ball-blue", beachBallBluePng, ballFrameSizes);
         this.load.spritesheet("beach-ball-green", beachBallGreenPng, ballFrameSizes);
         this.load.spritesheet("beach-ball-red", beachBallRedPng, ballFrameSizes);
+
+        //load background
+        this.load.image("summer-background", summerBackgroundPng);
     }
 
     create() {
