@@ -1,5 +1,6 @@
 //import necessary dependencies
 import Phaser from "phaser";
+import type { MainScene } from "./MainScene";
 
 export class BallSprite extends Phaser.Physics.Arcade.Sprite {
     constructor(scene: Phaser.Scene, x: number, y: number, texture: string) {
@@ -28,7 +29,8 @@ export class BallSprite extends Phaser.Physics.Arcade.Sprite {
 
             const length = Math.sqrt(dx*dx + dy*dy);
 
-            this.setVelocity((dx / length) * 300, (dy / length) * 300);
+            this.setVelocity((dx / length) * 400, (dy / length) * 400);
+            (this.scene as MainScene).events.emit("increase-score");
         })
 
         
@@ -39,7 +41,7 @@ export class BallSprite extends Phaser.Physics.Arcade.Sprite {
         super.preUpdate(time, delta);
 
         //Include dynamic rotation
-        this.rotation += this.body!.velocity.x * 0.0005;
+        this.rotation += this.body!.velocity.x * 0.00025;
 
         const height = this.scene.scale.height;
 

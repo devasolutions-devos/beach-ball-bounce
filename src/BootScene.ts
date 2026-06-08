@@ -6,6 +6,10 @@ import beachBallBluePng from "./assets/BeachBallBlue.png";
 import beachBallGreenPng from "./assets/BeachBallGreen.png";
 import beachBallRedPng from "./assets/BeachBallRed.png";
 
+//Import fonts
+import unkemptRegularTtf from "./assets/Unkempt/Unkempt-Regular.ttf";
+import unkemptBoldTtf from "./assets/Unkempt/Unkempt-Bold.ttf";
+
 //Import background
 import summerBackgroundPng from "./assets/SummerBackground.png";
 
@@ -25,6 +29,10 @@ export class BootScene extends Phaser.Scene {
         this.load.spritesheet("beach-ball-blue", beachBallBluePng, ballFrameSizes);
         this.load.spritesheet("beach-ball-green", beachBallGreenPng, ballFrameSizes);
         this.load.spritesheet("beach-ball-red", beachBallRedPng, ballFrameSizes);
+
+        //load fonts
+        this.load.font("Unkempt Regular", unkemptRegularTtf);
+        this.load.font("Unkempt Bold", unkemptBoldTtf);
 
         //load background
         this.load.image("summer-background", summerBackgroundPng);
