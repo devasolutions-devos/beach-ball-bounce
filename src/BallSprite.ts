@@ -3,6 +3,7 @@ import Phaser from "phaser";
 import type { MainScene } from "./MainScene";
 
 export class BallSprite extends Phaser.Physics.Arcade.Sprite {
+    
     constructor(scene: Phaser.Scene, x: number, y: number, texture: string) {
         super(scene, x, y, texture);
 
@@ -23,17 +24,28 @@ export class BallSprite extends Phaser.Physics.Arcade.Sprite {
         
         //Add click bounce logic
         //Use a vectorized logic for more realism and excitement
+        let canClick = true;
+
         this.on("pointerdown", (pointer: Phaser.Input.Pointer) => {
+            if (!canClick) {
+                return;
+            }
+
+            canClick = false;
+
             const dx = this.x - pointer.worldX;
             const dy = this.y - pointer.worldY;
 
             const length = Math.sqrt(dx*dx + dy*dy);
 
-            this.setVelocity((dx / length) * 400, (dy / length) * 400);
+            this.setVelocity((dx / length) * 300, (dy / length) * 300);
+            
             (this.scene as MainScene).events.emit("increase-score");
-        })
 
-        
+            this.scene.time.delayedCall(100, () => {
+                canClick = true;
+            })
+        })
 
     }
 
@@ -46,7 +58,8 @@ export class BallSprite extends Phaser.Physics.Arcade.Sprite {
         const height = this.scene.scale.height;
 
         //Destroy ball when the ball falls down.
-        if(this.y >= height + 50) {
+        if(this.y > height) {
+            (this.scene as MainScene).lives--;
             this.destroy();
         }
     }

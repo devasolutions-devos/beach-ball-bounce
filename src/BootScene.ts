@@ -6,6 +6,10 @@ import beachBallBluePng from "./assets/BeachBallBlue.png";
 import beachBallGreenPng from "./assets/BeachBallGreen.png";
 import beachBallRedPng from "./assets/BeachBallRed.png";
 
+//Import buttons
+import playButtonPng from "./assets/PlayButton.png";
+import controlsButtonPng from "./assets/ControlsButton.png";
+
 //Import fonts
 import unkemptRegularTtf from "./assets/Unkempt/Unkempt-Regular.ttf";
 import unkemptBoldTtf from "./assets/Unkempt/Unkempt-Bold.ttf";
@@ -13,8 +17,12 @@ import unkemptBoldTtf from "./assets/Unkempt/Unkempt-Bold.ttf";
 //Import background
 import summerBackgroundPng from "./assets/SummerBackground.png";
 
+//Import title
+import beachBallBounceTitlePng from "./assets/BeachBallBounceTitle.png";
+
 //Import background music
 import bouncingBeachBallSongOgg from "./assets/BouncingBeachBallSong.ogg";
+import preludeOgg from "./assets/Prelude.ogg";
 
 export class BootScene extends Phaser.Scene {
     constructor() {
@@ -30,6 +38,13 @@ export class BootScene extends Phaser.Scene {
         this.load.spritesheet("beach-ball-green", beachBallGreenPng, ballFrameSizes);
         this.load.spritesheet("beach-ball-red", beachBallRedPng, ballFrameSizes);
 
+        //load button
+        this.load.image("play-button", playButtonPng);
+        this.textures.get("play-button").setFilter(Phaser.Textures.FilterMode.LINEAR);
+
+        this.load.image("controls-button", controlsButtonPng);
+        this.textures.get("play-button").setFilter(Phaser.Textures.FilterMode.LINEAR);
+
         //load fonts
         this.load.font("Unkempt Regular", unkemptRegularTtf);
         this.load.font("Unkempt Bold", unkemptBoldTtf);
@@ -37,12 +52,17 @@ export class BootScene extends Phaser.Scene {
         //load background
         this.load.image("summer-background", summerBackgroundPng);
 
+        //load title
+        this.load.image("beach-ball-bounce-title", beachBallBounceTitlePng);
+        this.textures.get("beach-ball-bounce-title").setFilter(Phaser.Textures.FilterMode.LINEAR);
+
         //load audio
         this.load.audio("bouncing-beach-ball-song", bouncingBeachBallSongOgg);
+        this.load.audio("prelude", preludeOgg);
     }
 
     create() {
         //Scene after booting assets
-        this.scene.start("main-scene");
+        this.scene.start("menu-scene");
     }
 }

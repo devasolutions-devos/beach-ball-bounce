@@ -4,6 +4,9 @@ import Phaser from 'phaser';
 //Import scenes the game needs to run
 import { MainScene } from './MainScene';
 import { BootScene } from './BootScene';
+import { MenuScene } from './MenuScene';
+import { ControlsScene } from './ControlsScene';
+import { CreditsScene } from './CreditsScene';
 
 //Establish configuration object
 const config: Phaser.Types.Core.GameConfig = {
@@ -18,8 +21,7 @@ const config: Phaser.Types.Core.GameConfig = {
             debug: false,
         },
       },
-    pixelArt: true, //include pixel art graphics for them not to looked blur
-    scene: [BootScene, MainScene], //include scenes
+    scene: [BootScene, MenuScene, ControlsScene, MainScene, CreditsScene], //include scenes
 };
 
 new Phaser.Game(config); //run game
