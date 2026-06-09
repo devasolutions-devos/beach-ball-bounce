@@ -14,24 +14,28 @@ export class MainScene extends Phaser.Scene {
 
     constructor() {
         super({key:"main-scene"}); //scene identification string
+
+        //initialize texture array to spawn balls
         this.balls = ["beach-ball-blue", "beach-ball-green", "beach-ball-red"]
     }
 
     create() {
+        //initialize score and lives
         this.score = 0;
         this.lives = 3;
-        //Create increase-score event
 
-        this.events.removeAllListeners("increase-score");
+        //Reset and initialize events
+        this.events.removeAllListeners("increase-score"); //Reset events to restart gameplay
 
         this.events.on("increase-score", () => {
             this.score += 1;
             this.scoreText.setText((this.score).toString());
         });
 
+        //Get music
         let music = this.sound.get("bouncing-beach-ball-song")
 
-        //Get and play music
+        //Play music
         if(!music) {
             music = this.sound.add("bouncing-beach-ball-song", {
                 loop: true,
@@ -50,11 +54,13 @@ export class MainScene extends Phaser.Scene {
         
         //Set bounce collisions and create a new BallSprite
         this.physics.world.setBoundsCollision(true, true, true, false); //Only fall offscreen (when the ball goes down)
-        
+
+        //Start ball spawning
         let ballIndex = 0
         new BallSprite(this, Phaser.Math.Between(100, 700), 100, this.balls[ballIndex]);
         ballIndex++;
 
+        //Add event to spawn balls over time
         this.time.addEvent({
             delay: Phaser.Math.Between(7000, 11000),
             loop: true,
@@ -66,31 +72,37 @@ export class MainScene extends Phaser.Scene {
             repeat: 1,
         })
         
+        //Create "Score:" Label
         this.scoreLabelText = this.add.text(0,0,"Score:", {
             fontFamily: "Unkempt Bold",
             fontSize: "32px",
             color: "#fbc697",
         })
-
+        
+        //Create numerical score text
         this.scoreText = this.add.text(this.scoreLabelText.width + 20, 0, this.score.toString(), {
             fontFamily: "Unkempt Regular",
             fontSize: "32px",
             color: "#ffedd7",
         })
 
+        //add stroke for presence
         this.scoreLabelText.setStroke("#3b132b", 6);
         this.scoreText.setStroke("#3b132b", 4);
 
+        //Combine scorelabel and text in its container
         this.add.container(20,20, [this.scoreLabelText,this.scoreText]);
     }
 
     update() {
+        //Check if lives are 0 and restart the game
         if(this.lives <= 0) {
             this.sound.stopAll();
             this.scene.start("menu-scene");
         }
     }
 
+    //Score Set and Get
     set score(s: number) {
         this._score = s;
     }
@@ -99,6 +111,7 @@ export class MainScene extends Phaser.Scene {
         return this._score;
     }
 
+    //Lives Set and Get
     set lives(l: number) {
         this._lives = l
     }

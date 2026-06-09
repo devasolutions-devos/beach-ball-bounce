@@ -23,25 +23,33 @@ export class BallSprite extends Phaser.Physics.Arcade.Sprite {
         this.body!.checkCollision.down = false;
         
         //Add click bounce logic
-        //Use a vectorized logic for more realism and excitement
-        let canClick = true;
+        let canClick = true; //canClick serves as a flag to not spam clicks
 
+        //Use a vectorized logic for more realism and excitement
         this.on("pointerdown", (pointer: Phaser.Input.Pointer) => {
+            //Check if you can't click so cancel
             if (!canClick) {
                 return;
             }
 
+            //set flag to cannot click
             canClick = false;
 
-            const dx = this.x - pointer.worldX;
-            const dy = this.y - pointer.worldY;
+            //Use a vectorized logic for more realism and excitement
+            //Get components
+            const i = this.x - pointer.worldX;
+            const j = this.y - pointer.worldY;
 
-            const length = Math.sqrt(dx*dx + dy*dy);
+            //calculate magnitude
+            const v = Math.sqrt(i*i + j*j);
 
-            this.setVelocity((dx / length) * 300, (dy / length) * 300);
+            //set velocity with each component
+            this.setVelocity((i / v) * 300, (j / v) * 300);
             
+            //emit increase-score event on MainScene
             (this.scene as MainScene).events.emit("increase-score");
 
+            //enable click after 100ms
             this.scene.time.delayedCall(100, () => {
                 canClick = true;
             })
@@ -55,9 +63,10 @@ export class BallSprite extends Phaser.Physics.Arcade.Sprite {
         //Include dynamic rotation
         this.rotation += this.body!.velocity.x * 0.00025;
 
+        //Get scene height
         const height = this.scene.scale.height;
 
-        //Destroy ball when the ball falls down.
+        //Destroy ball and reduce balls when the ball falls down.
         if(this.y > height) {
             (this.scene as MainScene).lives--;
             this.destroy();

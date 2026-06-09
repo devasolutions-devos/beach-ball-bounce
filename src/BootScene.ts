@@ -38,7 +38,7 @@ export class BootScene extends Phaser.Scene {
         this.load.spritesheet("beach-ball-green", beachBallGreenPng, ballFrameSizes);
         this.load.spritesheet("beach-ball-red", beachBallRedPng, ballFrameSizes);
 
-        //load button
+        //load buttons
         this.load.image("play-button", playButtonPng);
         this.textures.get("play-button").setFilter(Phaser.Textures.FilterMode.LINEAR);
 
