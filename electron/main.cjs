@@ -1,3 +1,6 @@
+//Copyright (C) 2026 Mariano Hurtado de Mendoza Carranza (devasolutions-devos)
+//Apache-2.0 license
+
 const { app, BrowserWindow } = require("electron");
 const path = require("path");
 
