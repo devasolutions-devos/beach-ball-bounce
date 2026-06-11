@@ -14,10 +14,10 @@ Comfy Summer 2026 Background made by dot4 @ [casa4studio](https://casa4studio.it
 
 Prelude and Bouncing Beach Ball (Original Beach Ball Bounce Soundtrack) made by dot4 @ [casa4studio](https://casa4studio.itch.io) and available on [SoundCloud](https://soundcloud.com/casa4studio) too
 
-This game code is available on [Github](https://github.com/devasolutions-devos/beach-ball-bounce) under the **Apache 2.0 License**
+This game code is available on [Github](https://github.com/devasolutions-devos/beach-ball-bounce) under the **Apache-2.0 license**
 
 Thank you Macrow for the opportunity in this Game Jam :)
 
 ## License
 
-This repository is under the **Apache License 2.0.** Any use of this code has to follow the guidelines of this license.
+This repository is under the **Apache-2.0 license.** Any use of this code has to follow the guidelines of this license.
