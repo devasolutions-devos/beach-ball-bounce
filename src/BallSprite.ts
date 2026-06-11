@@ -1,3 +1,6 @@
+//Copyright (C) 2026 Mariano Hurtado de Mendoza Carranza (devasolutions-devos)
+//Apache-2.0 license
+
 //import necessary dependencies
 import Phaser from "phaser";
 import type { MainScene } from "./MainScene";
