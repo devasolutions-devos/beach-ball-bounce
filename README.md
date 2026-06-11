@@ -1,3 +1,6 @@
+<!--Copyright (C) 2026 Mariano Hurtado de Mendoza Carranza (devasolutions-devos)-->
+<!--Apache-2.0 license-->
+
 # Beach Ball Bounce
 
 This is the repository for the code of "Brach Ball Bounce" a game featured on the [Comfy Jam: Summer 2026](https://itch.io/jam/comfy-jam-summer-2026) game jam. This game was made using Phaser v4.1.0 and packaged with Electron JS as a Windows executable.
